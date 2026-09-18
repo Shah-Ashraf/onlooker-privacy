@@ -117,7 +117,7 @@
 
 <h2>3. Optional features that store more</h2>
 <p><strong>Crash reports</strong> — off by default. If you switch them on, crash details are written to a file on your device and <strong>never sent anywhere</strong>. Turning the setting off and clearing them removes them.</p>
-<p><strong>Recording diagnostic samples</strong> — a development feature that exists in debug builds only. It cannot be enabled in the version published on Google Play. In a debug build it saves face crops and, separately, whole camera frames to app-private storage so accuracy can be measured. If you are running a debug build and switch it on, those images are pictures of you and your surroundings; they stay on the device, and there is a button to delete them.</p>
+<p><strong>Recording diagnostic samples</strong> — a development feature that exists in debug builds only. It cannot be enabled in the version published on Google Play, because it is not there: the code is removed from the released app when it is built, and this was confirmed by inspecting the released file rather than only by reading the source. In a debug build it saves face crops and, separately, whole camera frames to app-private storage so accuracy can be measured. If you are running a debug build and switch it on, those images are pictures of you and your surroundings; they stay on the device, and there is a button to delete them.</p>
 
 <hr>
 
