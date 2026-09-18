@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Onlooker</title>
+<meta name="description" content="What Onlooker stores on your device, what it never stores, and the one thing that does leave your phone.">
+<style>
+  :root {
+    --ground: #ffffff;
+    --ink: #1c1f2e;
+    --muted: #5a6478;
+    --hairline: #dce1ec;
+    --sunken: #f4f6fa;
+    --accent: #6d28d9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #1c1f2e;
+      --ink: #f1f5f9;
+      --muted: #94a3b8;
+      --hairline: #2d3349;
+      --sunken: #252a3d;
+      --accent: #a78bfa;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -.02em; margin: 0 0 .4rem; }
+  h2 { font-size: 1.25rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em; }
+  h3 { font-size: 1rem; margin: 1.75rem 0 .5rem; }
+  .updated { color: var(--muted); margin: 0 0 2rem; font-size: .95rem; }
+  hr { border: 0; border-top: 1px solid var(--hairline); margin: 2.5rem 0; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: .875em; background: var(--sunken); border: 1px solid var(--hairline); border-radius: 4px; padding: .08em .35em; word-break: break-word; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--hairline); border-radius: 6px; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: .6rem .85rem; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  th { background: var(--sunken); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  tbody tr:last-child td { border-bottom: 0; }
+  a { color: var(--accent); }
+  .lede { font-size: 1.05rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Privacy Policy — Onlooker</h1>
+<p class="updated">Last updated: 17 September 2026</p>
+
+<p class="lede">Onlooker watches the front camera while you are using your phone and alerts you when someone other than you is looking at the screen.</p>
+
+<p>This policy describes exactly what the app stores, what it does not, and the one thing that does leave your device — which is not what most privacy policies would lead you to expect, so it is stated plainly rather than buried.</p>
+
+<hr>
+
+<h2>The short version</h2>
+<ul>
+  <li><strong>Your face never leaves this device.</strong> No face image, no face signature, no alert, and no setting is uploaded anywhere. Onlooker has no server, no account, and no login.</li>
+  <li><strong>Onlooker's own code makes no network requests at all.</strong> It links no networking library.</li>
+  <li><strong>One exception, and it is Google's, not ours.</strong> Onlooker uses Google's ML Kit to find faces in the camera image. ML Kit sends its own usage statistics to Google. We cannot switch that off, we have tried, and section 5 says exactly what it contains.</li>
+</ul>
+
+<hr>
+
+<h2>1. What is stored on your device</h2>
+<p>Everything below stays in Onlooker's private storage, readable only by Onlooker.</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>What</th><th>Where</th><th>Encrypted</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Face signatures</strong> — a 192-number mathematical summary of a registered face</td><td>app-private file</td><td>Yes, AES-256-GCM</td></tr>
+    <tr><td><strong>Face thumbnails</strong> — a small picture, so you can tell your registered faces apart</td><td>app-private file</td><td>Yes, AES-256-GCM</td></tr>
+    <tr><td><strong>Names</strong> you give registered faces</td><td>app-private database</td><td>No</td></tr>
+    <tr><td><strong>Alert history</strong> — time, reason, and how long detection took</td><td>app-private database</td><td>No</td></tr>
+    <tr><td><strong>Settings</strong> — threshold, window length, sampling rate, toggles</td><td>app-private preferences</td><td>No</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The encryption keys live in the Android Keystore, which is hardware-backed on most phones. They never leave it, and they are destroyed when the app is uninstalled. That is deliberate and it is absolute: <strong>once Onlooker is uninstalled, the stored face signatures can never be read again, even from a backup.</strong></p>
+
+<h3>What is NOT stored</h3>
+<ul>
+  <li><strong>Camera frames are not saved.</strong> They are analysed in memory and discarded. During registration, the captured images are turned into a signature and then thrown away.</li>
+  <li>A face signature <strong>cannot be turned back into a photograph</strong> of your face. It is a list of numbers describing a face, not a compressed image.</li>
+  <li>Automatic Android backup is disabled for this app, so none of the above is copied to Google Drive or transferred to a new phone.</li>
+</ul>
+
+<hr>
+
+<h2>2. Permissions, and why each one exists</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Permission</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Camera</strong></td><td>The only way to see whether someone is looking at your screen. Used while a monitoring session is running, and while you register a face.</td></tr>
+    <tr><td><strong>Notifications</strong></td><td>To show the alert and the ongoing "monitoring active" notice.</td></tr>
+    <tr><td><strong>Foreground service (camera)</strong></td><td>So monitoring keeps running while you use other apps. Android requires this to be declared and shows a permanent notification whenever it is active.</td></tr>
+    <tr><td><strong>Display over other apps</strong></td><td>So the alert can appear over whatever is on screen. Without it, an alert can be silently reduced to a notification you may miss.</td></tr>
+    <tr><td><strong>Full-screen intent</strong></td><td>Same reason — it is what lets an alert take over the screen.</td></tr>
+    <tr><td><strong>Vibrate</strong></td><td>The alert vibration, if you leave it on.</td></tr>
+    <tr><td><strong>Internet, network state</strong></td><td><strong>Not requested by Onlooker.</strong> These are added automatically by Google's ML Kit. See section 5.</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Device Admin</strong> is optional and off unless you turn it on. It is used for exactly one thing: locking the screen when an alert fires. Onlooker cannot wipe your device, change your password, or manage your phone in any other way, and you can revoke it at any time in Android settings.</p>
+
+<hr>
+
+<h2>3. Optional features that store more</h2>
+<p><strong>Crash reports</strong> — off by default. If you switch them on, crash details are written to a file on your device and <strong>never sent anywhere</strong>. Turning the setting off and clearing them removes them.</p>
+<p><strong>Recording diagnostic samples</strong> — a development feature that exists in debug builds only. It cannot be enabled in the version published on Google Play. In a debug build it saves face crops and, separately, whole camera frames to app-private storage so accuracy can be measured. If you are running a debug build and switch it on, those images are pictures of you and your surroundings; they stay on the device, and there is a button to delete them.</p>
+
+<hr>
+
+<h2>4. Deleting your data</h2>
+<ul>
+  <li><strong>Delete one face</strong> — Manage Faces. Its signature, thumbnail and files are deleted immediately.</li>
+  <li><strong>Delete everything</strong> — uninstall Onlooker, or clear its storage in Android settings. This also destroys the encryption key, which makes any remaining copy of a signature permanently unreadable.</li>
+</ul>
+<p>There is nothing to delete anywhere else, because nothing was sent anywhere else.</p>
+
+<hr>
+
+<h2>5. The one thing that does leave your device</h2>
+<p>Onlooker uses <strong>Google's ML Kit</strong> to locate faces in the camera image. The face-finding itself happens entirely on your phone — no image is uploaded. But the ML Kit library includes Google's own telemetry component, which collects statistics about its own use and sends them to Google.</p>
+<p>This is not something Onlooker chooses, and it is what adds the internet permission to the app.</p>
+<p><strong>What those messages contain.</strong> We inspected the queue on a test device on 17 September 2026. Each message is between 105 and 152 bytes and holds:</p>
+<ul>
+  <li>the version of the ML Kit face-detection library</li>
+  <li>this app's package name, <code>com.faceguard.android</code></li>
+  <li>the device language and region</li>
+  <li>a randomly generated identifier that is created when the app is installed</li>
+</ul>
+<p><strong>What they do not contain.</strong> No image, no face signature, no name, no alert. A message of that size could not carry a face even if it tried; a single face crop is dozens of times larger.</p>
+<p><strong>We tried to switch it off.</strong> Google's documented data-collection flag (<code>firebase_data_collection_default_enabled="false"</code>) was added, the pending queue was deleted, and a twenty-second monitoring session was run. It produced twenty-nine fresh ML Kit messages. The flag does not stop ML Kit, so it was removed rather than left in place to give a false impression.</p>
+<p>The random per-install identifier is the only thing here that relates to you at all, and only loosely: it identifies an installation, not a person, and it is replaced if you reinstall. It is disclosed on Google Play as <strong>"Device or other IDs"</strong>.</p>
+<p>Google's handling of that data is governed by Google's privacy policy, not this one.</p>
+
+<hr>
+
+<h2>6. Children</h2>
+<p>Onlooker is not directed at children and does not knowingly collect anything from them. It has no account system, so it collects no personal details from anyone.</p>
+
+<hr>
+
+<h2>7. Changes</h2>
+<p>If this policy changes in a way that affects what is stored or what is sent, the date at the top changes and the change is described here.</p>
+
+<hr>
+
+<h2>8. Contact</h2>
+<p>Questions about this policy or about Onlooker's handling of data: <a href="mailto:ashrafshah869@gmail.com">ashrafshah869@gmail.com</a></p>
+
+</main>
+</body>
+</html>
