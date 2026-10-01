@@ -54,7 +54,7 @@
 <main>
 
 <h1>Privacy Policy — Onlooker</h1>
-<p class="updated">Last updated: 17 September 2026</p>
+<p class="updated">Last updated: 1 October 2026</p>
 
 <p class="lede">Onlooker watches the front camera while you are using your phone and alerts you when someone other than you is looking at the screen.</p>
 
@@ -123,7 +123,7 @@
 
 <h2>4. Deleting your data</h2>
 <ul>
-  <li><strong>Delete one face</strong> — Manage Faces. Its signature, thumbnail and files are deleted immediately.</li>
+  <li><strong>Delete one face</strong> — Manage Faces. Its signature, thumbnail and files are deleted immediately, including any partially-written copy of the signature left behind by an interrupted save. Alerts that named that face stay in Alert History as events, with the name and the match score removed — what happened is your record; who it was goes with the face.</li>
   <li><strong>Delete everything</strong> — uninstall Onlooker, or clear its storage in Android settings. This also destroys the encryption key, which makes any remaining copy of a signature permanently unreadable.</li>
 </ul>
 <p>There is nothing to delete anywhere else, because nothing was sent anywhere else.</p>
@@ -136,7 +136,7 @@
 <p><strong>What those messages contain.</strong> We inspected the queue on a test device on 17 September 2026. Each message is between 105 and 152 bytes and holds:</p>
 <ul>
   <li>the version of the ML Kit face-detection library</li>
-  <li>this app's package name, <code>com.faceguard.android</code></li>
+  <li>this app's package name, <code>com.onlooker.android</code></li>
   <li>the device language and region</li>
   <li>a randomly generated identifier that is created when the app is installed</li>
 </ul>
@@ -154,6 +154,11 @@
 
 <h2>7. Changes</h2>
 <p>If this policy changes in a way that affects what is stored or what is sent, the date at the top changes and the change is described here.</p>
+<p><strong>1 October 2026</strong> — two changes, both narrowing what is kept:</p>
+<ul>
+  <li>The app's package name changed to <code>com.onlooker.android</code>. That name is part of the one thing that leaves your device (section 5), so the value sent is now this one.</li>
+  <li>Deleting a face now also removes a partially-written copy of its signature that an interrupted save could leave behind, and takes that person's name and match score out of alerts already in your history. Both used to survive deletion, which section 4 did not say and should not have needed to.</li>
+</ul>
 
 <hr>
 
